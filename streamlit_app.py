@@ -1,6 +1,8 @@
 import streamlit as st
 import numpy as np
 import pickle
+import joblib
+
 
 st.image("bean.webp")
 
@@ -11,8 +13,7 @@ with open('scaler.pkl', 'rb') as f:
 with open('PCA.pkl', 'rb') as f:
     pca = pickle.load(f)
 
-with open('model.pkl', 'rb') as f:
-    model = pickle.load(f)
+model = joblib.load('model_dt.pkl')
 
 # Define feature inputs
 columns = ['Area', 'Perimeter', 'MajorAxisLength', 'MinorAxisLength',
